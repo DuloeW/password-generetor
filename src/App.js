@@ -1,43 +1,61 @@
 import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import BoxData from "./components/box/BoxData";
 import BoxList from "./components/box/BoxList";
 
 let id = 0;
-let isLoading = false
+let isLoading = false;
 
 function App() {
   const [value, setValue] = useState("");
-  const [, setPassword] = useState("");
+  const [seconds, setSeconds] = useState(0);
   const [listPass, setListPass] = useState([]);
 
-
   const createRandomPassword = (e) => {
-    const randomInt = Math.round(Math.random() * 10000);
+    const randomInt = Math.round(Math.random() * 40000);
     const date = new Date();
-    const randomPass = `${randomInt}!(+${e.replace(
-      " ",
-      "%20"
-    )}${date.getTime()}`;
-    return randomPass;
+    if(seconds < 1000) {
+      return simpel(e)
+    } else if (seconds < 20000) {
+      return medium(e, date, randomInt)
+    } else {
+      return hard(e, date, randomInt)
+    }
   };
 
-  const customDelay = () => {
-    return Math.round(Math.random() * 10000)
+  const simpel = (e) => {
+    return "Ki2_Oi"+e
   }
+
+  const medium = (e, date, random) => {
+    return `${random}!(PkA+${e.replaceAll(
+      " ",
+      "%20"
+    )}${date.getFullYear()}`;
+  }
+
+  const hard = (e, date, random) => {
+    const word = e.toUpperCase()
+    const dateTime = date.getTime()
+    return `${dateTime}Xx${word}${random}`
+  }
+
+  const customDelay = () => {
+    let i = Math.round(Math.random() * 30000);
+    setSeconds(i);
+  };
 
   const createList = (value) => {
     if (value !== "") {
-      isLoading = true
+      isLoading = true;
       setValue("");
-      setPassword("");
       setTimeout(() => {
-        isLoading = false
+        isLoading = false;
         setListPass([
           ...listPass,
           { id: id++, password: createRandomPassword(value) },
         ]);
-      }, customDelay());
+      }, seconds);
     } else {
       alert("Isi terlrbih Dahulu");
     }
@@ -46,7 +64,9 @@ function App() {
   return (
     <div className="App-header">
       <div className="container-view-create">
-        <BoxData value={isLoading ? "Genereting Password" : "Generator Password"} />
+        <BoxData
+          value={isLoading ? "Genereting Password" : "Generator Password"}
+        />
         <div className="container-input-pass">
           <div className="container-name">
             <input
@@ -55,8 +75,10 @@ function App() {
               value={value}
               placeholder={"Input your short pass"}
               maxLength={5}
+              readOnly={isLoading}
               onChange={(e) => {
                 setValue(e.target.value);
+                customDelay();
               }}
             />
             <input
@@ -64,13 +86,17 @@ function App() {
               type={"submit"}
               value={"Send"}
               onClick={() => {
-                createList(value)
+                createList(value);
               }}
             />
           </div>
         </div>
       </div>
-      <BoxList listPass={listPass} isLoading={isLoading} />
+      <BoxList
+        listPass={listPass}
+        isLoading={isLoading}
+        second={Math.round(seconds / 1000)}
+      />
     </div>
   );
 }

@@ -36,4 +36,6 @@
     border-radius: 10px;
     border: none;
     margin-left: 10px;
+    background: linear-gradient(75deg, #0e4bf5, #000092);
+    color: white;
 }

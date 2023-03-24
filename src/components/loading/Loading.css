@@ -1,18 +1,13 @@
-.container-login {
+.container-loading {
     width: 150px;
     height: 30px;
     position: absolute;
     top: 5%;
     left: 23%;
-    border-radius: 10px;
-    background: #013cc6;
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    animation: jump 1s linear infinite;
 }
 
-.container-login p {
+.container-loading p {
     color: #fff;
     font-weight: 600;
 }
@@ -38,11 +33,44 @@
     animation: round 2s linear infinite;
 }
 
+.loading-relative {
+    background: #013cc6;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+.loading-relative span {
+    position: absolute;
+    top: -15px;
+    /* right: -30px; */
+    padding: 5px 11px 5px 11px;
+    background: #013cc6;
+    /* box-shadow: 2px 5px 5px #cbcbcb; */
+    border-radius: 50%;
+    color: white;
+}
+
 @keyframes round {
     0% {
         transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes jump {
+    0%, 20% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
