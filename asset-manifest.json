@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/password-generetor/static/css/main.5daf8689.css",
-    "main.js": "/password-generetor/static/js/main.6370d953.js",
+    "main.css": "/password-generetor/static/css/main.d7c03c60.css",
+    "main.js": "/password-generetor/static/js/main.e472843f.js",
     "static/js/787.aed2c027.chunk.js": "/password-generetor/static/js/787.aed2c027.chunk.js",
     "static/media/bayuLogo.png": "/password-generetor/static/media/bayuLogo.1123aa90c4804e59a9dd.png",
     "index.html": "/password-generetor/index.html",
-    "main.5daf8689.css.map": "/password-generetor/static/css/main.5daf8689.css.map",
-    "main.6370d953.js.map": "/password-generetor/static/js/main.6370d953.js.map",
+    "main.d7c03c60.css.map": "/password-generetor/static/css/main.d7c03c60.css.map",
+    "main.e472843f.js.map": "/password-generetor/static/js/main.e472843f.js.map",
     "787.aed2c027.chunk.js.map": "/password-generetor/static/js/787.aed2c027.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5daf8689.css",
-    "static/js/main.6370d953.js"
+    "static/css/main.d7c03c60.css",
+    "static/js/main.e472843f.js"
   ]
 }
