@@ -1,29 +1,16 @@
 import "./Box.css";
 
-const BoxData = (props) => {
-  const createElement = () => {
-    if (props.value === "Generator Password") {
-      return (
-        <>
-          <p className="generator">{props.value}</p>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <p className="generate">{props.value}</p>
-        </>
-      );
-    }
-  };
-
+const BoxData = ({ generate, image }) => {
   return (
-    <>
+    generate == "Generator Password" ? (
       <div className="containner-box">
-        {/* <p>{props.value}</p> */}
-        {createElement()}
+        <p>{generate}</p>
       </div>
-    </>
+    ) : (
+      <div className="containner-box generate">
+        <p>{generate}</p>
+      </div>
+    )
   );
 };
 

@@ -16,7 +16,7 @@ function App() {
     const date = new Date();
     if(seconds < 1000) {
       return simpel(e)
-    } else if (seconds < 20000) {
+    } else if (seconds < 10000) {
       return medium(e, date, randomInt)
     } else {
       return hard(e, date, randomInt)
@@ -41,7 +41,7 @@ function App() {
   }
 
   const customDelay = () => {
-    let i = Math.round(Math.random() * 30000);
+    let i = Math.round(Math.random() * 10000);
     setSeconds(i);
   };
 
@@ -65,7 +65,8 @@ function App() {
     <div className="App-header">
       <div className="container-view-create">
         <BoxData
-          value={isLoading ? "Genereting Password" : "Generator Password"}
+          generate={isLoading ? "Generating Password" : "Generator Password"}
+          image={"bayuLogo.png"}
         />
         <div className="container-input-pass">
           <div className="container-name">
